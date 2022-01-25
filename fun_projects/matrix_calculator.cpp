@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -61,7 +61,7 @@ int main()
 	return 0;
 }
 
-Matrix::Matrix() //конструктор по умолчанию
+Matrix::Matrix() //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 {
 	this->lines = 2;
 	this->columns = 2;
@@ -97,7 +97,7 @@ Matrix::Matrix(Matrix const& mat)
 	}
 }
 
-std::ostream& operator<< (std::ostream& output, const Matrix& mat) //перегруженный вывод
+std::ostream& operator<< (std::ostream& output, const Matrix& mat) //РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РІС‹РІРѕРґ
 {
 	for (int i = 0; i < mat.lines; i++)
 	{
@@ -111,7 +111,7 @@ std::ostream& operator<< (std::ostream& output, const Matrix& mat) //перегруженн
 	return output;
 }
 
-std::istream& operator>> (std::istream& input, Matrix& mat) //перегруженный ввод
+std::istream& operator>> (std::istream& input, Matrix& mat) //РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РІРІРѕРґ
 {
 	for (int i = 0; i < mat.lines; i++)
 	{
@@ -123,7 +123,7 @@ std::istream& operator>> (std::istream& input, Matrix& mat) //перегруженный ввод
 	return input; 
 }
 
-Matrix& Matrix::make_one_matrix() //делает единичную матрицу из созданной
+Matrix& Matrix::make_one_matrix() //РґРµР»Р°РµС‚ РµРґРёРЅРёС‡РЅСѓСЋ РјР°С‚СЂРёС†Сѓ РёР· СЃРѕР·РґР°РЅРЅРѕР№
 {
 	for (int i = 0; i < this->lines; i++)
 	{
@@ -142,7 +142,7 @@ Matrix& Matrix::make_one_matrix() //делает единичную матрицу из созданной
 	return *this;
 }
 
-Matrix::Matrix(int lines1, int columns1) //конструктор от двух интов
+Matrix::Matrix(int lines1, int columns1) //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РѕС‚ РґРІСѓС… РёРЅС‚РѕРІ
 {
 	this->lines = lines1;
 	this->columns = columns1;
@@ -169,7 +169,7 @@ Matrix::~Matrix()
 	delete[] matrix;
 }
 
-void Matrix::setMatrix() //заполняет матрицу числами
+void Matrix::setMatrix() //Р·Р°РїРѕР»РЅСЏРµС‚ РјР°С‚СЂРёС†Сѓ С‡РёСЃР»Р°РјРё
 {
 	for (int i = 0; i < this->lines; i++)
 	{
@@ -180,7 +180,7 @@ void Matrix::setMatrix() //заполняет матрицу числами
 	}
 }
 
-void Matrix::printMatrix() //выводит матрицу
+void Matrix::printMatrix() //РІС‹РІРѕРґРёС‚ РјР°С‚СЂРёС†Сѓ
 {
 	for (int i = 0; i < this->lines; i++)
 	{
@@ -192,7 +192,7 @@ void Matrix::printMatrix() //выводит матрицу
 	}
 }
 
-bool Matrix::operator== (const Matrix& second) const //оператор сравнения
+bool Matrix::operator== (const Matrix& second) const //РѕРїРµСЂР°С‚РѕСЂ СЃСЂР°РІРЅРµРЅРёСЏ
 {
 	if (this->columns != second.columns || this->lines != second.lines) return false;
 	for (int i = 0; i < lines; i++)
@@ -205,12 +205,12 @@ bool Matrix::operator== (const Matrix& second) const //оператор сравнения
 	return true;
 }
 
-bool Matrix::operator!= (const Matrix& second) const //оператор сравнения
+bool Matrix::operator!= (const Matrix& second) const //РѕРїРµСЂР°С‚РѕСЂ СЃСЂР°РІРЅРµРЅРёСЏ
 {
 	return !(*this == second);
 }
 
-Matrix Matrix::operator+ (const Matrix& second) //сложение матриц
+Matrix Matrix::operator+ (const Matrix& second) //СЃР»РѕР¶РµРЅРёРµ РјР°С‚СЂРёС†
 {
 	assert(this->columns == second.columns);
 	assert(this->lines == second.lines);
@@ -225,7 +225,7 @@ Matrix Matrix::operator+ (const Matrix& second) //сложение матриц
 	return result;
 }
 
-Matrix Matrix::operator- (const Matrix& second) //вычитание матриц
+Matrix Matrix::operator- (const Matrix& second) //РІС‹С‡РёС‚Р°РЅРёРµ РјР°С‚СЂРёС†
 {
 	assert(this->columns == second.columns);
 	assert(this->lines == second.lines);
@@ -240,7 +240,7 @@ Matrix Matrix::operator- (const Matrix& second) //вычитание матриц
 	return result;
 }
 
-Matrix Matrix::operator* (const Matrix& second) //умножение матриц
+Matrix Matrix::operator* (const Matrix& second) //СѓРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†
 {
 	assert(this->columns == second.lines);
 	Matrix result(this->lines, second.columns);
@@ -259,7 +259,7 @@ Matrix Matrix::operator* (const Matrix& second) //умножение матриц
 	return result;
 }
 
-Matrix Matrix::operator* (int n) //умножение матрицы на число
+Matrix Matrix::operator* (int n) //СѓРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° С‡РёСЃР»Рѕ
 {
 	Matrix result(this->lines, this->columns);
 	for (int i = 0; i < this->lines; i++)
@@ -272,7 +272,7 @@ Matrix Matrix::operator* (int n) //умножение матрицы на число
 	return result;
 }
 
-Matrix Matrix::operator/ (int n) //деление матрицы на число
+Matrix Matrix::operator/ (int n) //РґРµР»РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° С‡РёСЃР»Рѕ
 {
 	Matrix result(this->lines, this->columns);
 	for (int i = 0; i < this->lines; i++)
@@ -336,7 +336,7 @@ Matrix& Matrix::operator*= (const Matrix& second)
 	return *this;
 }
 
-int Matrix::determinantMatrix() //определитель
+int Matrix::determinantMatrix() //РѕРїСЂРµРґРµР»РёС‚РµР»СЊ
 {
 	assert(this->lines == this->columns);
 	if (this->columns == 2)
@@ -356,7 +356,7 @@ int Matrix::determinantMatrix() //определитель
 	}
 }
 
-Matrix& Matrix::operator= (const Matrix& right) //оператор присваивания
+Matrix& Matrix::operator= (const Matrix& right) //РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 {
 	if (right != *this)
 	{
@@ -373,7 +373,7 @@ Matrix& Matrix::operator= (const Matrix& right) //оператор присваивания
 	return *this;
 }
 
-Matrix Matrix::in_power_of2() //возведение в квадрат
+Matrix Matrix::in_power_of2() //РІРѕР·РІРµРґРµРЅРёРµ РІ РєРІР°РґСЂР°С‚
 {
 	assert(this->lines == this->columns);
 	Matrix result(this->lines, this->columns);
@@ -441,30 +441,30 @@ Matrix& Matrix::operator-= (int n)
 
 void game()
 {
-	std::cout << "Что вы хотите сделать? Выберите цифру." << "\n" << "1. Умножить две матрицы." << "\n" << "2. Умножить матрицу на число." << "\n" <<
-		"3. Возвести матрицу в квадрат." << "\n" << "4. Поделить матрицу на число." << "\n" << "5. Сложить две матрицы." << "\n"
-		<< "6. Сложить матрицу с числом." << "\n" << "7. Вычесть из матрицы число." << "\n" << "8. Вычесть две матрицы." << "\n"
-		<< "9. Посчитать определитель" << "\n";
+	std::cout << "Р§С‚Рѕ РІС‹ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ? Р’С‹Р±РµСЂРёС‚Рµ С†РёС„СЂСѓ." << "\n" << "1. РЈРјРЅРѕР¶РёС‚СЊ РґРІРµ РјР°С‚СЂРёС†С‹." << "\n" << "2. РЈРјРЅРѕР¶РёС‚СЊ РјР°С‚СЂРёС†Сѓ РЅР° С‡РёСЃР»Рѕ." << "\n" <<
+		"3. Р’РѕР·РІРµСЃС‚Рё РјР°С‚СЂРёС†Сѓ РІ РєРІР°РґСЂР°С‚." << "\n" << "4. РџРѕРґРµР»РёС‚СЊ РјР°С‚СЂРёС†Сѓ РЅР° С‡РёСЃР»Рѕ." << "\n" << "5. РЎР»РѕР¶РёС‚СЊ РґРІРµ РјР°С‚СЂРёС†С‹." << "\n"
+		<< "6. РЎР»РѕР¶РёС‚СЊ РјР°С‚СЂРёС†Сѓ СЃ С‡РёСЃР»РѕРј." << "\n" << "7. Р’С‹С‡РµСЃС‚СЊ РёР· РјР°С‚СЂРёС†С‹ С‡РёСЃР»Рѕ." << "\n" << "8. Р’С‹С‡РµСЃС‚СЊ РґРІРµ РјР°С‚СЂРёС†С‹." << "\n"
+		<< "9. РџРѕСЃС‡РёС‚Р°С‚СЊ РѕРїСЂРµРґРµР»РёС‚РµР»СЊ" << "\n";
 	int answer = 0;
 	std::cin >> answer;
 	switch (answer)
 	{
 	case 1:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0, l2 = 0, c2 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите размеры второй матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РІС‚РѕСЂРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		std::cin >> l2 >> c2;
 		Matrix a1(l1, c1), a2(l2, c2);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
-		std::cout << "Введите элементы второй матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РІС‚РѕСЂРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a2.setMatrix();
 		Matrix a3 = a1 * a2;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a3.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -475,19 +475,19 @@ void game()
 	}
 	case 2:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите число" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ" << "\n";
 		int number;
 		std::cin >> number;
 		Matrix a1(l1, c1);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
 		Matrix a2 = a1 * number;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a2.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -498,16 +498,16 @@ void game()
 	}
 	case 3:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		Matrix a1(l1, c1);
 		a1.setMatrix();
 		Matrix a2 = a1.in_power_of2();
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a2.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -518,19 +518,19 @@ void game()
 	}
 	case 4:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите число" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ" << "\n";
 		int number;
 		std::cin >> number;
 		Matrix a1(l1, c1);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
 		Matrix a2 = a1 / number;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a2.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -541,20 +541,20 @@ void game()
 	}
 	case 5:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0, l2 = 0, c2 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите размеры второй матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РІС‚РѕСЂРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		std::cin >> l2 >> c2;
 		Matrix a1(l1, c1), a2(l2, c2);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
-		std::cout << "Введите элементы второй матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РІС‚РѕСЂРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a2.setMatrix();
 		Matrix a3 = a1 + a2;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a3.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -565,19 +565,19 @@ void game()
 	}
 	case 6:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите число" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ" << "\n";
 		int number;
 		std::cin >> number;
 		Matrix a1(l1, c1);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
 		Matrix a2 = a1 + number;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a2.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -588,19 +588,19 @@ void game()
 	}
 	case 7:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите число" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ" << "\n";
 		int number;
 		std::cin >> number;
 		Matrix a1(l1, c1);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
 		Matrix a2 = a1 - number;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a2.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -611,20 +611,20 @@ void game()
 	}
 	case 8:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0, l2 = 0, c2 = 0;
 		std::cin >> l1 >> c1;
-		std::cout << "Введите размеры второй матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РІС‚РѕСЂРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		std::cin >> l2 >> c2;
 		Matrix a1(l1, c1), a2(l2, c2);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
-		std::cout << "Введите элементы второй матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РІС‚РѕСЂРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a2.setMatrix();
 		Matrix a3 = a1 - a2;
-		std::cout << "Ответ: " << "\n";
+		std::cout << "РћС‚РІРµС‚: " << "\n";
 		a3.printMatrix();
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)
@@ -635,14 +635,14 @@ void game()
 	}
 	case 9:
 	{
-		std::cout << "Введите размеры первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		int l1 = 0, c1 = 0;
 		std::cin >> l1 >> c1;
 		Matrix a1(l1, c1);
-		std::cout << "Введите элементы первой матрицы" << "\n";
+		std::cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РїРµСЂРІРѕР№ РјР°С‚СЂРёС†С‹" << "\n";
 		a1.setMatrix();
-		std::cout << "Ответ: " << a1.determinantMatrix() << "\n";
-		std::cout << "Хотите продолжить? 1 - да, 0 - нет." << "\n";
+		std::cout << "РћС‚РІРµС‚: " << a1.determinantMatrix() << "\n";
+		std::cout << "РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? 1 - РґР°, 0 - РЅРµС‚." << "\n";
 		int a = 0;
 		std::cin >> a;
 		if (a == 1)

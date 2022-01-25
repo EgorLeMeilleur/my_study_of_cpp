@@ -1,14 +1,14 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <fstream>
 #include <Windows.h>
 #include <string>
 using namespace std;
-bool check_if_letter(char letter) //проверяем, является ли введенный символ буквой
+bool check_if_letter(char letter) //РїСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РІРІРµРґРµРЅРЅС‹Р№ СЃРёРјРІРѕР» Р±СѓРєРІРѕР№
 {
-	return (letter >= 'А' && letter <= 'я') || (letter == 'ё' || letter == 'Ё');
+	return (letter >= 'Рђ' && letter <= 'СЏ') || (letter == 'С‘' || letter == 'РЃ');
 }
-bool check_if_in_word(char letter, string word) //проверяем наличие введенной буквы
+bool check_if_in_word(char letter, string word) //РїСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ РІРІРµРґРµРЅРЅРѕР№ Р±СѓРєРІС‹
 {
 	for (int i = 0; i < word.size(); i++)
 	{
@@ -19,7 +19,7 @@ bool check_if_in_word(char letter, string word) //проверяем наличие введенной бу
 	}
 	return false;
 }
-int returning_index(char letter, string word, int i) //возвращаем номер угаданной буквы
+int returning_index(char letter, string word, int i) //РІРѕР·РІСЂР°С‰Р°РµРј РЅРѕРјРµСЂ СѓРіР°РґР°РЅРЅРѕР№ Р±СѓРєРІС‹
 {
 	int j = 0;
 	for (; i < word.size(); i++)
@@ -31,7 +31,7 @@ int returning_index(char letter, string word, int i) //возвращаем номер угаданно
 	}
 	return word.size() + 1;
 }
-bool check_of_cin(string s) //проверяем сколько букв ввел ползователь
+bool check_of_cin(string s) //РїСЂРѕРІРµСЂСЏРµРј СЃРєРѕР»СЊРєРѕ Р±СѓРєРІ РІРІРµР» РїРѕР»Р·РѕРІР°С‚РµР»СЊ
 {
 	if (s.length() > 1)
 	{
@@ -39,7 +39,7 @@ bool check_of_cin(string s) //проверяем сколько букв ввел ползователь
 	}
 	return true;
 }
-bool check_already_guessed(char letter, char* array1, char* array, int size) //проверяем, называл ли игрок эту букву раньше
+bool check_already_guessed(char letter, char* array1, char* array, int size) //РїСЂРѕРІРµСЂСЏРµРј, РЅР°Р·С‹РІР°Р» Р»Рё РёРіСЂРѕРє СЌС‚Сѓ Р±СѓРєРІСѓ СЂР°РЅСЊС€Рµ
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -57,7 +57,7 @@ bool check_already_guessed(char letter, char* array1, char* array, int size) //п
 	}
 	return false;
 }
-void printing_gallows(int mistakes, char* array) //рисуем виселицу и выводим ошибки
+void printing_gallows(int mistakes, char* array) //СЂРёСЃСѓРµРј РІРёСЃРµР»РёС†Сѓ Рё РІС‹РІРѕРґРёРј РѕС€РёР±РєРё
 {
 	switch (mistakes)
 	{
@@ -88,42 +88,42 @@ void printing_gallows(int mistakes, char* array) //рисуем виселицу и выводим оши
 	}
 	if (mistakes != 0)
 	{
-		std::cout << "\nВаши ошибки - ";
+		std::cout << "\nР’Р°С€Рё РѕС€РёР±РєРё - ";
 		for (int i = 0; i < 7; i++)
 		{
 			std::cout << array[i] << " ";
 		}
 	}
 }
-void print_number_of_mistakes(int mistakes) //пишем о кол-ве ошибок 
+void print_number_of_mistakes(int mistakes) //РїРёС€РµРј Рѕ РєРѕР»-РІРµ РѕС€РёР±РѕРє 
 {
 	switch (mistakes)
 	{
 	case 1:
-		std::cout << "У вас осталось " << 7 - mistakes << " попыток.";
+		std::cout << "РЈ РІР°СЃ РѕСЃС‚Р°Р»РѕСЃСЊ " << 7 - mistakes << " РїРѕРїС‹С‚РѕРє.";
 		break;
 	case 2:
-		std::cout << "У вас осталось " << 7 - mistakes << " попыток.";
+		std::cout << "РЈ РІР°СЃ РѕСЃС‚Р°Р»РѕСЃСЊ " << 7 - mistakes << " РїРѕРїС‹С‚РѕРє.";
 		break;
 	case 3:
-		std::cout << "У вас осталось " << 7 - mistakes << " попытки.";
+		std::cout << "РЈ РІР°СЃ РѕСЃС‚Р°Р»РѕСЃСЊ " << 7 - mistakes << " РїРѕРїС‹С‚РєРё.";
 		break;
 	case 4:
-		std::cout << "У вас осталось " << 7 - mistakes << " попытки.";
+		std::cout << "РЈ РІР°СЃ РѕСЃС‚Р°Р»РѕСЃСЊ " << 7 - mistakes << " РїРѕРїС‹С‚РєРё.";
 		break;
 	case 5:
-		std::cout << "У вас осталось " << 7 - mistakes << " попытки.";
+		std::cout << "РЈ РІР°СЃ РѕСЃС‚Р°Р»РѕСЃСЊ " << 7 - mistakes << " РїРѕРїС‹С‚РєРё.";
 		break;
 	case 6:
-		std::cout << "У вас осталась " << 7 - mistakes << " попытка.";
+		std::cout << "РЈ РІР°СЃ РѕСЃС‚Р°Р»Р°СЃСЊ " << 7 - mistakes << " РїРѕРїС‹С‚РєР°.";
 		break;
 	}
 }
 void game(string word)
 {
-	std::cout << "Добро пожаловать в игру \"Виселица\"!";
+	std::cout << "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РёРіСЂСѓ \"Р’РёСЃРµР»РёС†Р°\"!";
 	char* current_guessed_word = new char[word.size()];
-	for (int i = 0; i < word.size(); i++) // игровое поле
+	for (int i = 0; i < word.size(); i++) // РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
 	{
 		current_guessed_word[i] = '_';
 	}
@@ -135,28 +135,28 @@ void game(string word)
 	}
 	while (count_of_guessed_letters < word.size() && count_of_mistakes < 7)
 	{
-		std::cout << "\nСлово - ";
+		std::cout << "\nРЎР»РѕРІРѕ - ";
 		for (int i = 0; i < word.size(); i++)
 		{
 			std::cout << current_guessed_word[i] << " ";
 		}
 		printing_gallows(count_of_mistakes, mistakes_array);
-		std::cout << "\nУгадайте букву: ";
+		std::cout << "\nРЈРіР°РґР°Р№С‚Рµ Р±СѓРєРІСѓ: ";
 		char letter;
 		string s;
 		cin >> s;
 		if (!check_of_cin(s))
 		{
-			std::cout << "Вы ввели слишком много символов, попробуйте еще раз.";
+			std::cout << "Р’С‹ РІРІРµР»Рё СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ СЃРёРјРІРѕР»РѕРІ, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.";
 			continue;
 		}
 		letter = s[0];
-		bool check_char = check_if_letter(letter); //проверяем, является ли введенный знак буквой
-		bool check_answer = check_if_in_word(letter, word); //проверяем, есть ли буква в слове
+		bool check_char = check_if_letter(letter); //РїСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РІРІРµРґРµРЅРЅС‹Р№ Р·РЅР°Рє Р±СѓРєРІРѕР№
+		bool check_answer = check_if_in_word(letter, word); //РїСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё Р±СѓРєРІР° РІ СЃР»РѕРІРµ
 		bool check_repeat = check_already_guessed(letter, mistakes_array, current_guessed_word, word.size());
-		if (check_char && check_answer && !check_repeat) // если буква есть в слове
+		if (check_char && check_answer && !check_repeat) // РµСЃР»Рё Р±СѓРєРІР° РµСЃС‚СЊ РІ СЃР»РѕРІРµ
 		{
-			unsigned int index = returning_index(letter, word, 0); //ищем ее индекс
+			unsigned int index = returning_index(letter, word, 0); //РёС‰РµРј РµРµ РёРЅРґРµРєСЃ
 			if (index < word.size())
 			{
 				current_guessed_word[index] = letter;
@@ -165,7 +165,7 @@ void game(string word)
 				{
 					break;
 				}
-				for (int i = 0; i < word.size(); i++) //проверяем, есть ли в слове еще такие буквы
+				for (int i = 0; i < word.size(); i++) //РїСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё РІ СЃР»РѕРІРµ РµС‰Рµ С‚Р°РєРёРµ Р±СѓРєРІС‹
 				{
 					index = returning_index(letter, word, index + 1);
 					if (index < word.size())
@@ -179,20 +179,20 @@ void game(string word)
 			{
 				break;
 			}
-			std::cout << "Вы верно угадали букву!";
+			std::cout << "Р’С‹ РІРµСЂРЅРѕ СѓРіР°РґР°Р»Рё Р±СѓРєРІСѓ!";
 			continue;
 		}
-		else if (!check_char) //на случай, если символ не буква
+		else if (!check_char) //РЅР° СЃР»СѓС‡Р°Р№, РµСЃР»Рё СЃРёРјРІРѕР» РЅРµ Р±СѓРєРІР°
 		{
-			std::cout << "Введённый вами знак не является буквой, попробуйте еще раз.\n";
+			std::cout << "Р’РІРµРґС‘РЅРЅС‹Р№ РІР°РјРё Р·РЅР°Рє РЅРµ СЏРІР»СЏРµС‚СЃСЏ Р±СѓРєРІРѕР№, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.\n";
 			continue;
 		}
 		else if (check_repeat)
 		{
-			std::cout << "Вы уже вводили эту букву.";
+			std::cout << "Р’С‹ СѓР¶Рµ РІРІРѕРґРёР»Рё СЌС‚Сѓ Р±СѓРєРІСѓ.";
 			continue;
 		}
-		else if (!check_answer) //если буква неправильная
+		else if (!check_answer) //РµСЃР»Рё Р±СѓРєРІР° РЅРµРїСЂР°РІРёР»СЊРЅР°СЏ
 		{
 			count_of_mistakes++;
 			mistakes_array[count_of_mistakes - 1] = letter;
@@ -200,25 +200,25 @@ void game(string word)
 			{
 				break;
 			}
-			std::cout << "Ваша буква не верна.\n";
+			std::cout << "Р’Р°С€Р° Р±СѓРєРІР° РЅРµ РІРµСЂРЅР°.\n";
 			print_number_of_mistakes(count_of_mistakes);
 		}
 	}
-	if (count_of_guessed_letters == word.size()) //победа
+	if (count_of_guessed_letters == word.size()) //РїРѕР±РµРґР°
 	{
-		std::cout << "\nСлово - ";
+		std::cout << "\nРЎР»РѕРІРѕ - ";
 		for (int i = 0; i < word.size(); i++)
 		{
 			std::cout << current_guessed_word[i] << " ";
 		}
 		printing_gallows(count_of_mistakes, mistakes_array);
-		std::cout << "\nВы победили!\n";
+		std::cout << "\nР’С‹ РїРѕР±РµРґРёР»Рё!\n";
 		std::cout << word << "\n";
 	}
 	if (count_of_mistakes == 7)
 	{
-		printing_gallows(count_of_mistakes, mistakes_array); //поражение
-		std::cout << "\nВы проиграли!\n" << "Ваше слово - ";
+		printing_gallows(count_of_mistakes, mistakes_array); //РїРѕСЂР°Р¶РµРЅРёРµ
+		std::cout << "\nР’С‹ РїСЂРѕРёРіСЂР°Р»Рё!\n" << "Р’Р°С€Рµ СЃР»РѕРІРѕ - ";
 		std::cout << word << "\n";
 	}
 	delete[] current_guessed_word;
@@ -232,7 +232,7 @@ int main()
 	ifstream f("D://words_for_gallows.txt", ios_base::in);
 	if (!f.is_open())
 	{
-		cout << "Файл не может быть открыт.\n";
+		cout << "Р¤Р°Р№Р» РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚РєСЂС‹С‚.\n";
 		return 0;
 	}
 	string get_words;
